@@ -43,11 +43,12 @@ This loosely follows the [Robofab object model](http://robofab.org/objects/model
 // glyph: A
 
 contours[0] = {
+  classes: 'skeleton',
   nodes: {
     0: {
       x: 100,
       y: 50,
-      Class: 'bottom left',
+      classes: 'bottom left',
       oType: 'line'
     },
     1: {
@@ -57,7 +58,7 @@ contours[0] = {
     }
   },
   transform: [
-    {rotate: 15, u: deg}
+    {rotate: 15, u: 'deg'}
   ]
 };
 
