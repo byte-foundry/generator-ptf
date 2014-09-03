@@ -1,18 +1,23 @@
-generator-pptf
+generator-ptf
 ==============
 
-Yeoman generator that creates a "Prototypo Parametric TypeFace" folder and the gulpfile to convert it to a "Javascript Uniform Font Object Notation" file.
+Yeoman generator that creates a *Parametric Typeface Folder* and the gulpfile to convert it to a *Javascript Uniform Font Object Notation* (jsufon) file.
 
 Install
 -------
 
-npm install -g generator-pptf
+npm install -g generator-ptf
+
+Use
+---
+
+yo ptf
 
 
-What is a pptf?
+What is a ptf?
 ---------------
 
-A pptf is the folder and file structure we use to easily "hand-write" parametric typefaces for Prototypo. Ultimately we want to make it possible to design such a typeface inside Prototypo.
+A ptf is the folder and file structure we use to easily "hand-write" parametric typefaces for Prototypo. Ultimately we want to make it possible to design such a typeface directly inside Prototypo.
 
 **Anatomy of a pptf** (highly unstable)
 
@@ -32,7 +37,7 @@ A pptf is the folder and file structure we use to easily "hand-write" parametric
     └── package.json
 
 **Anatomy of a glyph file**
-This loosely follows the robofab object model
+This loosely follows the [Robofab object model](http://robofab.org/objects/model.html).
 
 ```javascript
 // glyph: A
@@ -54,12 +59,17 @@ contours[0] = {
   transform: [
     {rotate: 15, u: deg}
   ]
-}
+};
 
 components[0] = 'another-glyph';
 
 anchors[0] = {
   x: 100,
   y: 50
-}
+};
 ```
+
+What is a jsufon?
+-----------------
+
+`jsufon` should be *ufo3 in a single json file*. See [ufo3](http://unifiedfontobject.org/versions/ufo3/) spec for reference.
