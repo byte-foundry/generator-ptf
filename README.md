@@ -40,34 +40,41 @@ A ptf is the folder and file structure we use to easily "hand-write" parametric 
 This loosely follows the [Robofab object model](http://robofab.org/objects/model.html).
 
 ```javascript
-// glyph: A
+exports.glyphs['A'] = {
 
-contours[0] = {
-  classes: 'skeleton',
-  nodes: {
-    0: {
-      x: 100,
-      y: 50,
-      classes: 'bottom left',
-      oType: 'line'
+    contours: {
+        0: {
+            classes: 'skeleton',
+            nodes: {
+                0: {
+                    x: 100,
+                    y: 50,
+                    classes: 'bottom left',
+                    oType: 'line'
+                },
+                1: {
+                    x: width + nodes[0].x,
+                    y: height,
+                    type: 'smooth'
+                }
+            },
+            transform: [
+                {rotate: 15, u: 'deg'}
+            ]
+        },
     },
-    1: {
-      x: width + nodes[0].x,
-      y: height,
-      type: 'smooth'
+
+    components {
+        0: 'another-glyph'
+    },
+
+    anchors: {
+        0: {
+            x: 100,
+            y: 50
+        }
     }
-  },
-  transform: [
-    {rotate: 15, u: 'deg'}
-  ]
-};
-
-components[0] = 'another-glyph';
-
-anchors[0] = {
-  x: 100,
-  y: 50
-};
+}
 ```
 
 What is a jsufon?
