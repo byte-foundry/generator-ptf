@@ -1,0 +1,11 @@
+{
+  "name": "generator-ptf",
+  "version": "0.1.0",
+  "description": "Build a jsufon file from a parametric typeface",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0"
+  }
+}
