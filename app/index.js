@@ -2,30 +2,28 @@
 
 var yeoman = require('yeoman-generator');
 var fs = require('fs');
+var ncp = require('ncp').ncp;
+ncp.limit = 16;
 
 var GeneratorPtf = yeoman.generators.Base.extend({
-	method : function() {
-		console.log('Welcome to ptf generator');
-		fs.mkdir('src', function(err) {
-			if (err) throw err;
-			fs.mkdir('src/glyphs', function(err) {
+	files: function() {
+		//this.sourceRoot = this.sourceRoot();
+		ncp(this.sourceRoot(), '.', function (err) {
+ 			if (err) {
+   				return console.error(err);
+ 			}
+			fs.readdir('.', function(err, files) {
 				if (err) throw err;
+				files.forEach(function(file) {
+					if(file.indexOf('DOT') !== -1) {
+						fs.rename(file, file.replace('DOT', '.'), function(err) {
+							if (err) throw err;
+						});
+					}
+				});
 			});
-			fs.open('src/glyphs/a-cap.coffee', 'w+', function(err) {
-				if (err) throw err;
-			});
-			fs.open('src/parameters.js', 'w+', function(err) {
-				if (err) throw err;
-			});
-			fs.open('src/presets.js', 'w+', function(err) {
-				if (err) throw err;
-			});
-			fs.open('src/typeface.js', 'w+', function(err) {
-				if (err) throw err;
-			});
-			fs.createReadStream('app/package_template.json').pipe(fs.createWriteStream('package.json'));
 		});
 	}
-})
+});
 
 module.exports = GeneratorPtf;
