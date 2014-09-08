@@ -1,11 +1,22 @@
 {
   "name": "generator-ptf",
   "version": "0.1.0",
-  "description": "Build a jsufon file from a parametric typeface",
+  "description": "ptf generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/byte-foundry"
+  },
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "generator-ptf"
   ],
+  "author": "byte-foundry",
+  "license": "ISC",
   "dependencies": {
-    "yeoman-generator": "~0.16.0"
+    "yeoman-generator": "^0.17.5"
   }
 }
